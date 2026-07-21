@@ -10,7 +10,7 @@ pipeline {
         FRONTEND_REPO  = "eks-demo-frontend"
 
         // CHANGE THIS TO YOUR ACTUAL EKS CLUSTER NAME
-        CLUSTER_NAME   = "YOUR_EKS_CLUSTER_NAME"
+        CLUSTER_NAME   = "my-eks-cluster"
 
         K8S_NAMESPACE  = "fullstack-app"
         IMAGE_TAG      = "${BUILD_NUMBER}"
