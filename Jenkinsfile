@@ -80,7 +80,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-creds'
+                    credentialsId: 'aws-ecr'
                 ]]) {
                     sh '''
                         aws eks update-kubeconfig --region $AWS_REGION --name $CLUSTER_NAME
