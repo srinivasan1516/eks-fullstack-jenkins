@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Board — EKS Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="board">
+    <header class="board__header">
+      <div class="board__brand">
+        <span class="board__dot"></span>
+        <h1>task<span class="board__cursor">_</span>board</h1>
+      </div>
+      <p class="board__meta">served from <span id="podHost">frontend-pod</span> · api status <span id="apiStatus" class="status-pill status-pill--pending">checking</span></p>
+    </header>
+
+    <form id="taskForm" class="composer" autocomplete="off">
+      <input id="taskInput" type="text" placeholder="Add a task and hit enter…" maxlength="120" required />
+      <button type="submit">Add</button>
+    </form>
+
+    <ul id="taskList" class="tasks"></ul>
+
+    <p id="emptyState" class="empty-state" hidden>Nothing queued. Add your first task above.</p>
+    <p id="errorState" class="error-state" hidden></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

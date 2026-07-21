@@ -1,0 +1,22 @@
+# For local testing only — NOT used in the EKS deployment.
+# Run:  docker compose up --build
+# Visit http://localhost:8080
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    # NOTE: nginx.conf proxies /api/ to "backend-service:5000", which only
+    # resolves inside Kubernetes. For local docker-compose testing, either
+    # run against the containers directly with matching service name, or
+    # temporarily point nginx.conf's proxy_pass at "http://backend:5000/api/"
+    # (the compose service name) before building the image locally.

@@ -1,0 +1,14 @@
+{
+  "name": "eks-demo-backend",
+  "version": "1.0.0",
+  "description": "Simple Task Manager API for EKS + Jenkins demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"(add real tests here)\" && exit 0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}

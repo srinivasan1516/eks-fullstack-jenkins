@@ -1,0 +1,36 @@
+# eksctl cluster config
+# Create the cluster with:  eksctl create cluster -f eks/cluster-config.yaml
+# Delete it later with:     eksctl delete cluster -f eks/cluster-config.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: fullstack-demo-cluster
+  region: us-east-1        # change to your preferred AWS region
+  version: "1.30"
+
+# IAM OIDC provider is required so pods/service-accounts (and add-ons)
+# can assume fine-grained IAM roles later (e.g. for ECR, autoscaler, etc.)
+iam:
+  withOIDC: true
+
+managedNodeGroups:
+  - name: ng-default
+    instanceType: t3.medium
+    desiredCapacity: 2
+    minSize: 2
+    maxSize: 4
+    volumeSize: 20
+    privateNetworking: false
+    ssh:
+      allow: false
+    labels:
+      role: worker
+    tags:
+      Environment: demo
+      Project: eks-fullstack-jenkins
+
+# CloudWatch logging for the control plane (useful for debugging)
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["api", "audit", "authenticator"]

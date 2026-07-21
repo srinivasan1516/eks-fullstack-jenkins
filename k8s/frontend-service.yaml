@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+  namespace: fullstack-app
+spec:
+  # type: LoadBalancer is enough on its own — EKS's built-in (in-tree)
+  # cloud provider will provision a classic AWS ELB automatically, no
+  # extra controller required. If you later install the AWS Load
+  # Balancer Controller add-on, you can swap this for an Ingress + ALB
+  # instead for path-based routing, WAF, etc.
+  type: LoadBalancer   # public entry point to the whole app
+  selector:
+    app: frontend
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
