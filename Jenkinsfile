@@ -11,9 +11,9 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION       = "us-east-1"
-        AWS_ACCOUNT_ID   = "123456789012"          // <-- replace with your AWS account ID
-        ECR_REGISTRY     = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+        AWS_REGION       = "ap-south-1"
+        AWS_ACCOUNT_ID   = "660815084808"          // <-- replace with your AWS account ID
+        ECR_REGISTRY     = "$660815084808.dkr.ecr.$ap-south-1.amazonaws.com"
         BACKEND_REPO     = "eks-demo-backend"
         FRONTEND_REPO    = "eks-demo-frontend"
         CLUSTER_NAME     = "fullstack-demo-cluster"
