@@ -13,7 +13,7 @@ pipeline {
     environment {
         AWS_REGION       = "ap-south-1"
         AWS_ACCOUNT_ID   = "660815084808"          // <-- replace with your AWS account ID
-        ECR_REGISTRY     = "$660815084808.dkr.ecr.$ap-south-1.amazonaws.com"
+        ECR_REGISTRY     = "660815084808.dkr.ecr.ap-south-1.amazonaws.com"
         BACKEND_REPO     = "eks-demo-backend"
         FRONTEND_REPO    = "eks-demo-frontend"
         CLUSTER_NAME     = "fullstack-demo-cluster"
